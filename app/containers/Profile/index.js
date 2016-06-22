@@ -1,12 +1,26 @@
 import React from 'react';
 import { UserProfile, UserRepos, Notes } from '../../components';
-export default class Home extends React.Component{
+import Wilddog from 'wilddog';
+import WildReactMixin from 'wildreact';
+import { mixin } from 'core-decorators';
+
+@mixin(WildReactMixin)
+export default class Profile extends React.Component{
     state = {
         notes: ['1', '2', '3'],
         bio: {
             name: 'zhufengpeixun'
         },
         repos: ['a', 'b', 'c']
+    }
+
+    componentDidMount(){
+        var ref = new Wilddog("https://taker.wilddogio.com/notes");
+        this.bindAsArray(ref, "notes");
+    }
+
+    componentWillUnMount(){
+        this.unbind('notes');
     }
 
     render(){
