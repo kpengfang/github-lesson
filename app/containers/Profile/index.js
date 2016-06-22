@@ -32,7 +32,9 @@ export default class Profile extends React.Component{
     componentWillUnMount(){
         this.unbind('notes');
     }
-
+    handleClick(msg){
+        this.setState({notes:this.state.notes.concat(msg)});
+    }
     render(){
         return (
             <div className="row">
@@ -46,7 +48,7 @@ export default class Profile extends React.Component{
                 </div>
                 <div className="col-xs-4">
                     笔记
-                    <Notes notes={this.state.notes}/>
+                    <Notes handleClick={this.handleClick.bind(this)} notes={this.state.notes}></Notes>
                 </div>
             </div>
         )
