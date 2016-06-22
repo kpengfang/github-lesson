@@ -1,17 +1,20 @@
 import React from 'react';
-
+import { UserProfile, UserRepos, Notes } from '../../components';
 export default class Home extends React.Component{
     render(){
         return (
             <div className="row">
                 <div className="col-xs-4">
-                    UserProfile路由参数是 {this.props.params.username}
+                    基本信息
+                    <UserProfile />
                 </div>
                 <div className="col-xs-4">
-                    UserRepos
+                    代码仓库
+                    <UserRepos />
                 </div>
                 <div className="col-xs-4">
-                    Notes
+                    笔记
+                    <Notes />
                 </div>
             </div>
         )
