@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 export default class Notes extends Component {
     render(){
         return (
-            <div> Notes </div>
+            <div>
+                <p>评论</p>
+                <p>notes: {this.props.notes}</p>
+            </div>
         )
     }
 }
